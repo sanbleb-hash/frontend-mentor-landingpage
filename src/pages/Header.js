@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import TopWiget from '../components/top-wiget';
 import Wigets from '../components/wigets';
 
 const Header = () => {
@@ -29,7 +30,9 @@ const Header = () => {
 					</div>
 				</article>
 			</RightSection>
-			<LeftSection></LeftSection>
+			<LeftSection>
+				<TopWiget />
+			</LeftSection>
 			<BottomSection>
 				<Wigets />
 			</BottomSection>
@@ -42,12 +45,19 @@ const Section = styled.section`
 	grid-template-columns: repeat(3, 1fr);
 	gap: 15px;
 	min-height: 60vh;
+	max-height: 70vh;
 	width: 100%;
+
+	padding: 2rem 0;
+
+	@media (max-width: 1110px) {
+	}
 `;
 const RightSection = styled.section`
 	grid-column: span 2;
 	width: 100%;
 	min-height: 60vh;
+	height: 70vh;
 	display: flex;
 	align-items: start;
 	gap: 15px;
@@ -55,14 +65,20 @@ const RightSection = styled.section`
 	flex-direction: column;
 
 	.banner-container {
-		width: 100%;
+		width: 70vw;
+		height: 30vh;
 	}
 	.banner-image {
 		width: 100%;
+		height: 100%;
 		display: inline-block;
+		object-fit: cover;
 	}
 	.intro-container {
 		display: flex;
+		flex-grow: 1;
+		padding-top: 3rem;
+		padding-bottom: 2rem;
 		gap: 15px;
 		align-items: start;
 		justify-content: space-between;
@@ -104,6 +120,7 @@ const RightSection = styled.section`
 `;
 const LeftSection = styled.section`
 	background-color: var(--main-color);
+	max-height: 70vh;
 `;
 const BottomSection = styled.section`
 	background-color: inherit;
