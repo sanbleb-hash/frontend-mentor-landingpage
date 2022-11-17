@@ -4,7 +4,7 @@ import styled from 'styled-components';
 const Wigets = () => {
 	return (
 		<Wiget>
-			<Container>
+			<Container className='main-container'>
 				<article className='containts'>
 					<img
 						className='img'
@@ -48,30 +48,57 @@ const Wigets = () => {
 };
 
 const Wiget = styled.section`
-	padding: 10px 0;
-	max-height: 250px;
+	max-height: 200px;
+	@media (max-width: 1110px) {
+		.main-container {
+			flex-wrap: wrap;
+			margin: 0 auto;
+		}
+		.containts {
+			min-width: 350px;
+			font-size: 12px;
+		}
+	}
+	@media (max-width: 768px) {
+		.main-container {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			justify-content: center;
+		}
+		.containts {
+			min-width: 450px;
+			justify-content: space-between;
+		}
+	}
 `;
 const Container = styled.div`
 	display: flex;
 	align-items: center;
 	gap: 4rem;
 	width: 100%;
+	height: 90%;
 	justify-content: space-between;
 
 	.containts {
 		display: flex;
-		width: 33%;
+		width: 35%;
 		align-items: start;
-		gap: 2rem;
+		gap: 0.5rem;
+		box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.2);
+		height: 150px;
 
 		.img {
 			width: 50%;
 			height: 150px;
+			object-fit: contain;
 		}
 	}
 	.inner-container {
 		display: flex;
 		align-items: start;
+		justify-content: space-between;
+		height: 100%;
 		flex-direction: column;
 		align-items: center;
 		gap: 5px;
@@ -82,18 +109,18 @@ const Container = styled.div`
 			display: inline-block;
 		}
 		h2 {
-			font: 4rem;
+			font-size: 2rem;
 			color: var(--primary-blue);
 
 			align-self: flex-start;
 		}
 		h3 {
-			font: 0.5rem;
+			font-size: 1rem;
 			color: var(--main-color);
 			align-self: flex-start;
 		}
 		p {
-			font: 0.8rem;
+			font-size: 0.8rem;
 			color: var(--primary-blue);
 		}
 	}

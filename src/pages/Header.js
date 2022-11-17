@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import TopWiget from '../components/top-wiget';
 import Wigets from '../components/wigets';
 
 const Header = () => {
@@ -21,7 +22,9 @@ const Header = () => {
 					</div>
 				</article>
 			</RightSection>
-			<LeftSection></LeftSection>
+			<LeftSection>
+				<TopWiget />
+			</LeftSection>
 			<BottomSection>
 				<Wigets />
 			</BottomSection>
@@ -34,53 +37,14 @@ const Section = styled.section`
 	grid-template-columns: repeat(3, 1fr);
 	gap: 15px;
 	min-height: 60vh;
+	max-height: 70vh;
 	width: 100%;
-
-	@media (max-width: 1110px) {
-		display: flex;
-		flex-direction: column;
-		background: rebeccapurple/0.5;
-		min-height: 90vh;
-		.banner-container {
-			height: 450px;
-			background-image: url('/assets/images/image-web-3-mobile.jpg');
-			background-size: cover;
-			background-repeat: no-repeat;
-			background-position: center;
-		}
-
-		.intro-container {
-			justify-content: space-between;
-			width: 100%;
-		}
-		.intro-text {
-			justify-content: space-between;
-			height: 100%;
-			gap: 3.5rem;
-		}
-
-		.main-container {
-			display: flex;
-			flex-direction: column;
-		}
-	}
-
-	@media (max-width: 900px) {
-		.intro-container {
-			flex-direction: column;
-			justify-content: space-between;
-			width: 100%;
-		}
-		.title,
-		.extra {
-			display: inline;
-		}
-	}
 `;
 const RightSection = styled.section`
 	grid-column: span 2;
 	width: 100%;
 	min-height: 60vh;
+	height: 70vh;
 	display: flex;
 	align-items: start;
 	gap: 15px;
@@ -89,18 +53,18 @@ const RightSection = styled.section`
 
 	.banner-container {
 		width: 100%;
-		height: 450px;
-		background-image: url('/assets/images/image-web-3-desktop.jpg');
-		background-size: cover;
-		background-repeat: no-repeat;
-		background-position: center;
 	}
 	.banner-image {
 		width: 100%;
+		height: 100%;
 		display: inline-block;
+		object-fit: cover;
 	}
 	.intro-container {
 		display: flex;
+		flex-grow: 1;
+		padding-top: 3rem;
+		padding-bottom: 2rem;
 		gap: 15px;
 		align-items: start;
 		justify-content: space-between;
@@ -147,6 +111,7 @@ const RightSection = styled.section`
 `;
 const LeftSection = styled.section`
 	background-color: var(--main-color);
+	max-height: 70vh;
 `;
 const BottomSection = styled.section`
 	background-color: inherit;
